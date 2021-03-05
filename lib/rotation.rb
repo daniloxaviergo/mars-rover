@@ -27,4 +27,20 @@ class Rotation
       @position = 270
     end
   end
+
+  def forward_cardinal
+    forward = {
+      n: ['y', '+'],
+      s: ['y', '-'],
+      e: ['x', '+'],
+      w: ['x', '-']
+    }
+
+    forward[cardinal]
+  end
+
+  def cardinal
+    cardinal = { '0' => :n, '90' => :w, '180' => :s, '270' => :e }
+    cardinal[@position.to_s]
+  end
 end

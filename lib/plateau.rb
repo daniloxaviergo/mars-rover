@@ -3,7 +3,11 @@ class Plateau
     @area = area
   end
 
-  def area
-    @area
+  def limit_x
+    @area[0]
+  end
+
+  def limit_y
+    @area[1]
   end
 end

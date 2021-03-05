@@ -33,6 +33,24 @@ describe Rotation do
     end
   end
 
+  it '.cardinal' do
+    subject.to_left
+    expect(subject.cardinal).to eq(:w)
+
+    subject.to_left
+    expect(subject.cardinal).to eq(:s)
+
+    subject.to_left
+    expect(subject.cardinal).to eq(:e)
+
+    subject.to_left
+    expect(subject.cardinal).to eq(:n)
+  end
+
+  it '.forward_cardinal' do
+    expect(subject.forward_cardinal).to eq(['y', '+'])
+  end
+
   it 'direction is west and rotation to left' do
     subject.to_cardinal('w')
     expect(subject.to_left).to eq(180)
