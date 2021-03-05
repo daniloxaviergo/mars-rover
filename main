@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('Gemfile', __dir__)
+require 'bundler/setup'
+require 'pry'
+
+require './lib/plateau'
+require './lib/rotation'
+require './lib/rover'
+require './lib/command'
+
+unless ARGV[0] && File.exist?(ARGV[0])
+  puts 'Invalid file'
+  exit
+end
+
+file_content = File.open(ARGV[0]).read
+command = Command.new(file_content)
+command.execute
+
+puts command.output.join("\n")

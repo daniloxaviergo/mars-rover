@@ -50,7 +50,7 @@ class Command
   end
 
   def alias_cmd(cmd)
-    return @alias[cmd] if @alias.present?
+    return @alias[cmd] if @alias
 
     @alias = {
       m: proc { @rover.forward },
