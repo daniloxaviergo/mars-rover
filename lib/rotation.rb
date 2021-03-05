@@ -1,17 +1,17 @@
 class Rotation
   attr_accessor :position
 
-  def initialize()
+  def initialize
     @position = 0
   end
 
   def to_right
-    @position = @position - 90
-    @position = @position < 0 ? 270 : @position
+    @position -= 90
+    @position = @position.negative? ? 270 : @position
   end
 
   def to_left
-    @position = @position + 90
+    @position += 90
     @position = @position >= 360 ? 0 : @position
   end
 
@@ -23,7 +23,7 @@ class Rotation
       @position = 180
     when 'w'
       @position = 90
-    when 'e'      
+    when 'e'
       @position = 270
     end
   end

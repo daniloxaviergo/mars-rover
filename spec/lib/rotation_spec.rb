@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'rotation'
 
 describe Rotation do
-  subject { described_class.new() }
+  subject { described_class.new }
 
   it '.to_right' do
     expect(subject.to_right).to eq(270)
@@ -28,7 +28,7 @@ describe Rotation do
       e: 270
     }
 
-    directions.keys.each do |key|
+    directions.each_key do |key|
       expect(subject.to_cardinal(key.to_s)).to eq(directions[key])
     end
   end
